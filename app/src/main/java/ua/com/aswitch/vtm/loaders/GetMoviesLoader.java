@@ -1,4 +1,4 @@
-package ua.com.aswitch.vtm.adapters;
+package ua.com.aswitch.vtm.loaders;
 
 import android.content.Context;
 

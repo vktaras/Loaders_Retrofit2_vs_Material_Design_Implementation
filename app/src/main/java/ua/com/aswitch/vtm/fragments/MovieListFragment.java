@@ -9,20 +9,17 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import ua.com.aswitch.vtm.MainActivity;
 import ua.com.aswitch.vtm.R;
-import ua.com.aswitch.vtm.adapters.GetMoviesLoader;
+import ua.com.aswitch.vtm.loaders.GetMoviesLoader;
 import ua.com.aswitch.vtm.adapters.MoviesAdapter;
 import ua.com.aswitch.vtm.models.Movie;
 import ua.com.aswitch.vtm.models.MoviePage;
@@ -54,16 +51,12 @@ public class MovieListFragment extends Fragment implements LoaderManager.LoaderC
         View v = inflater.inflate(R.layout.fragment_movielist, container, false);
 
         setToolbarTitle(getString(R.string.latest_movies));
-        setFirstToolbarTitle("");
+
         getActionBar().setDisplayHomeAsUpEnabled(false);
         getActionBar().setDisplayShowHomeEnabled(false);
 
-
-
-
         moviesRecyclerView = (RecyclerView) v.findViewById(R.id.moviesRecyclerView);
         progressBar = (ProgressBar) v.findViewById(R.id.progress_bar);
-
 
         page = 0;
 
@@ -121,8 +114,6 @@ public class MovieListFragment extends Fragment implements LoaderManager.LoaderC
 
     }
 
-
-
     public void updateAdapter(){
         dismissProgressBar();
 
@@ -161,10 +152,5 @@ public class MovieListFragment extends Fragment implements LoaderManager.LoaderC
     public void setToolbarTitle(String title){
         ((MainActivity)context).setToolbarTitle(title);
     }
-
-    public void setFirstToolbarTitle(String title){
-        ((MainActivity)context).setFirstToolbarTitle(title);
-    }
-
 
 }

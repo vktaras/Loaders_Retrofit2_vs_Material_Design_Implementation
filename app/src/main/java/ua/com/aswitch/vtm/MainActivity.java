@@ -25,19 +25,13 @@ public class MainActivity extends AppCompatActivity{
 
     FragmentManager fragmentManager;
     Toolbar toolbar;
-    TextView firstToolbarTitle, toolbarTitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Handle Toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
-        firstToolbarTitle = (TextView) findViewById(R.id.first_toolbar_title);
-
-
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -62,8 +56,6 @@ public class MainActivity extends AppCompatActivity{
 
         fragmentManager.executePendingTransactions();
 
-
-
     }
 
     public void openFragment(final Fragment fragment, String LOG_TAG) {
@@ -86,9 +78,6 @@ public class MainActivity extends AppCompatActivity{
         openFragment(movieItemFragment, MovieItemFragment.LOG_TAG);
     }
 
-
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -101,32 +90,18 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void setToolbarTitle(String title){
-        if (toolbarTitle!=null) {
-            toolbarTitle.setText(title);
-        }
+        getSupportActionBar().setTitle(title);
     }
-
-    public void setFirstToolbarTitle(String title){
-        if (firstToolbarTitle!=null) {
-            firstToolbarTitle.setText(title);
-        }
-    }
-
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onBackPressed() {

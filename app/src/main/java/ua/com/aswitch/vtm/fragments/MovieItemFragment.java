@@ -66,8 +66,6 @@ public class MovieItemFragment extends Fragment{
             getActionBar().setDisplayShowHomeEnabled(true);
 
             setToolbarTitle(currentMovie.getTitle());
-            setFirstToolbarTitle(getString(R.string.back));
-
 
             Picasso.with(context).load(Constants.URL_POSTER + currentMovie.getPoster_path()).into(movieImageView);
             Picasso.with(context).load(Constants.URL_POSTER + currentMovie.getBackdrop_path()).into(movieBackgroundImageView);
@@ -101,8 +99,5 @@ public class MovieItemFragment extends Fragment{
         ((MainActivity)context).setToolbarTitle(title);
     }
 
-    public void setFirstToolbarTitle(String title){
-        ((MainActivity)context).setFirstToolbarTitle(title);
-    }
 
 }
