@@ -7,7 +7,10 @@ import java.util.ArrayList;
  * Created by taras on 4/18/17.
  */
 
-public class Movie implements Serializable{
+// We implement only serializable,
+// because basically we transfer the only one movie item between fragments.
+// Parcelable has the advantages in case of transferring array of objects.
+public class Movie implements Serializable {
     private String poster_path;
     private Boolean adult;
     private String overview;
@@ -22,12 +25,7 @@ public class Movie implements Serializable{
     private Long vote_count;
     private Boolean video;
     private Double vote_average;
-
-
-
     private boolean isAdapterMovieItem;
-
-
 
     public Movie() {
         isAdapterMovieItem = true;
